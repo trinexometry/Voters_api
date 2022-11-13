@@ -1,0 +1,53 @@
+{
+	"person": [{
+		"Epic_no" : "aws1234567",
+		"Name" : "Gaurav Sharma",
+		"age" : 18,
+		"father_name" :"Ajeet Kumar",
+		"husband_name":"None",
+		"sex" : "male",
+		"house_no" : "F-73",
+		"poll_booth" : 1,
+		"district" : "nangloi",
+		"state" : "Delhi"
+	},
+
+	{
+		"Epic_no" : "aws1544867",
+		"Name" : "Sushil Sharma",
+		"age" : 24,
+		"father_name" :"Ajeet Kumar",
+		"husband_name":"None",
+		"sex" : "male",
+		"house_no" : "F-73",
+		"poll_booth" : 1,
+		"district" : "nangloi",
+		"state" : "Delhi"
+	},
+
+	{
+		"Epic_no" : "aws1834567",
+		"Name" : "Savitri Sharma",
+		"age" : 42,
+		"father_name" :"None",
+		"husband_name":"Ajeet Kumar",
+		"sex" : "Female",
+		"house_no" : "F-73",
+		"poll_booth" : 1,
+		"district" : "nangloi",
+		"state" : "Delhi"
+	},
+
+	{
+		"Epic_no" : "aws1234898",
+		"Name" : "Ajeet Kumar",
+		"age" : 55,
+		"father_name" :"Jai Dev",
+		"husband_name":"None",
+		"sex" : "male",
+		"house_no" : "F-73",
+		"poll_booth" : 1,
+		"district" : "nangloi",
+		"state" : "Delhi"
+	}]
+}
