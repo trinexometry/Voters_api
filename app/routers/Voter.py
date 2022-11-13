@@ -25,7 +25,6 @@ router = APIRouter(
     prefix="/voter",
     tags=['voter']
 )
-#response_model=List[schemas.postcreate], response_model_exclude_unset=True
 ############################# GET POSTS ########################################
 @router.post("/get_Data")
 async def get_voters(epic : schemas.epic , db: Session = Depends(get_db)):
@@ -38,13 +37,7 @@ async def get_voters(epic : schemas.epic , db: Session = Depends(get_db)):
 
 ############################## CREATE POST ###############################
 @router.post("/post",status_code=status.HTTP_201_CREATED)
-def create_voter(voter: schemas.voter, db: Session = Depends(get_db), auth: int = Depends(oauth2.get_current_user)): #dict = Body(...) --> if you're passing through the postman body 
-    #print(post)
-    #print((post.dict())) #to convert the basemodel schema into dictionary
-    #as we're not using database, so for now we'll use random numbersa
-    #post_dict = post.dict()
-    #post_dict['id'] = randrange(0,1000000000)          #auth: int = Depends(oauth2.get_current_user)
-    #my_posts.append(post_dict)
+def create_voter(voter: schemas.voter, db: Session = Depends(get_db), auth: int = Depends(oauth2.get_current_user)): 
     cursor.execute (""" INSERT INTO  "voters" (epic_no, name, age, father_name, husband_name, sex, house_no, poll_booth, district, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *;""", (voter.Epic_no, voter.name, voter.age, voter.father_name, voter.husband_name, voter.sex, voter.house_no, voter.poll_booth, voter.district, voter.state))
     new_post = cursor.fetchall()
     conn.commit()
@@ -57,17 +50,6 @@ def get_latest_post():
     #latest_post = my_posts[len(my_posts) - 1]
     latest_post = cursor.fetchone()
     return latest_post"""
-
-
-#################### GET POST BY ID ##################################
-#@router.get("/{id}", response_model=schemas.postcreate, response_model_exclude_unset=True)
-#def get_post(id: int, Response: Response, db: Session = Depends(get_db)):
-    #cursor.execute("""Select * From Posts WHERE id = %s ;""", (str(id),)) #this comma sometimes solves weird argumental errors
-    #post_one = cursor.fetchone()
- #   post_one = db.query(models.Post).filter(models.Post.id == id).first()
-  #  if not post_one:
-   #     raise HTTPException(status_code = status.HTTP_404_NOT_FOUND, detail=f"404: post with id {id} not found")  
-    #return  post_one
 
 
 ############################### DELETE POST ########################################
@@ -83,12 +65,5 @@ async def delete_post(epic: schemas.epic, db: Session = Depends(get_db),auth: in
     
     deleted_post.delete(synchronize_session=False)
     db.commit()
-
-    #return {"after deletion": "post succesfuly deleted"} #when we send a 204 request we should not return any data
     return Response(status_code=status.HTTP_204_NO_CONTENT)
-
-
-@router.post("/find")
-def vote_sort(voter:schemas.epic,db: Session = Depends(get_db)):
-    voter = db.query()
 
