@@ -4,11 +4,8 @@ from random import randrange
 from typing import List
 
 import psycopg2
-from fastapi.params import Body, Depends
 from psycopg2.extras import RealDictCursor
-from pydantic import BaseModel, dataclasses
-from sqlalchemy import update
-from .database import SessionLocal, engine, get_db
+from .database import engine
 
 from . import models, schemas
 
