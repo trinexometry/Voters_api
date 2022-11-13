@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.select import Select
 
-browser = webdriver.Edge(r"edgedriver_win32\msedgedriver.exe")
+browser = webdriver.Edge(r"msedgedriver.exe")
 
 browser.get("https://ceogoa.nic.in/appln/UIL/ElectoralRoll.aspx")
 
