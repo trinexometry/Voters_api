@@ -38,7 +38,7 @@ async def get_voters(epic : schemas.epic , db: Session = Depends(get_db)):
 ############################## CREATE POST ###############################
 @router.post("/post",status_code=status.HTTP_201_CREATED)
 def create_voter(voter: schemas.voter, db: Session = Depends(get_db), auth: int = Depends(oauth2.get_current_user)): 
-    cursor.execute (""" INSERT INTO  "voters" (epic_no, name, age, father_name, husband_name, sex, house_no, poll_booth, district, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *;""", (voter.Epic_no, voter.name, voter.age, voter.father_name, voter.husband_name, voter.sex, voter.house_no, voter.poll_booth, voter.district, voter.state))
+    cursor.execute (""" INSERT INTO  "voters" (epic_no, name, age, father_name, husband_name, sex, house_no, poll_booth, district, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *;""", (voter.epic_no, voter.name, voter.age, voter.father_name, voter.husband_name, voter.sex, voter.house_no, voter.poll_booth, voter.district, voter.state))
     new_post = cursor.fetchall()
     conn.commit()
     return new_post
