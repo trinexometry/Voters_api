@@ -68,7 +68,7 @@ for i in html_code:
             if(len(browser.window_handles)==1):
                 break
             browser.close()
-        url=open("VotersList-Goa/Goa-"+i[1]+".txt","w")
+        url=open(r"VotersList-Goa\Goa-"+i[1]+".txt","w")
         url.writelines(pdf_urls)
         url.close()
         browser.switch_to.window(browser.window_handles[0])
