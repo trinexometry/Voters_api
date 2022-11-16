@@ -31,7 +31,7 @@ Search=browser.find_element(by=By.XPATH,value='//*[@id="ctl00_Main_btnSearch"]')
 
 html_code=Assembly_consts.get_attribute("innerHTML")
 
-Const_Dict={}
+
 
 html_code=html_code[67:]
 html_code=html_code.splitlines()
