@@ -17,7 +17,7 @@ ops.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 #The current scraper is using MsEdge's driver to run the scraping operation
 #To make the code work download the driver of the desired browser in the same folder as that of this program
-#Import the appropriate driver function srom the selenium library
+#Import the appropriate driver function from the selenium library
 #And change the name of the file to that of the driver below
 
 browser = webdriver.Edge(r"Web_Driver/msedgedriver",options=ops)
